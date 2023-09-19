@@ -35,7 +35,7 @@ int _printf(const char *format, ...)
             if (format[i] == ' ' && format[i + 1] != '\0')
                 searchInSpecfires(format[i+1], &flag, &i, 1, ptr);
             else
-                searchInSpecfires(format[i+1], &flag, &i, 0, ptr);
+                searchInSpecfires(format[i], &flag, &i, 0, ptr);
 			if (flag)
 				handleBuffer(2, &format[i - 1]);
 		}
