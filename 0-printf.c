@@ -14,8 +14,6 @@ int _printf(const char *format, ...)
 
 	if (!format)
 		return (-1);
-	if (*format == '\0')
-		return (-1);
 	va_start(ptr, format);
 	while (format[i] != '\0')
 	{
@@ -24,10 +22,10 @@ int _printf(const char *format, ...)
 		else
 		{
 			++i;
-			while (format[i] == ' ')
-				++i;
 			if (format[i] == '\0')
 				return (handleBuffer(-1, "") ? handleBuffer(-1, "") : -1);
+			if (format[i] == ' ' && (format[i + 1] == ' ' || format[i + 1] == '\0'))
+				++i;
 			if (format[i] == '%')
 			{
 				printPercentage();
@@ -35,7 +33,7 @@ int _printf(const char *format, ...)
 			}
 			searchInSpecfires(format[i], &flag, ptr);
 			if (flag)
-				handleBuffer(2, &format[i - 1]);
+				handleBuffer(1, &format[i]);
 		}
 		++i;
 	}
