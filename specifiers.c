@@ -8,7 +8,7 @@
  *
  * Return: Nothing
  */
-void searchInSpecfires(char format, int *flag, va_list ptr)
+void searchInSpecfires(char *format, int *flag, va_list ptr)
 {
 	placeHolders specifiers[] = {
 		{'c', printChar},
@@ -22,8 +22,10 @@ void searchInSpecfires(char format, int *flag, va_list ptr)
 		{'X', printHEX},
 		{'S', printVisibleString},
 	};
-	int j = 0;
+	int j = 0, i = 0;
 
+	if (format[i] == ' ')
+		++i;
 	for (; j < 10; ++j)
 	{
 		if (format == specifiers[j].sp && *flag)

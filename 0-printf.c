@@ -38,7 +38,7 @@ int _printf(const char *format, ...)
 				printPercentage();
 				flag = 0;
 			}
-			searchInSpecfires(format[i], &flag, ptr);
+			searchInSpecfires(format, &flag, ptr);
 			if (flag)
 				handleBuffer(2, &format[i - 1]);
 		}
