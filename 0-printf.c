@@ -34,7 +34,7 @@ int _printf(const char *format, ...)
 			}
 			searchInSpecfires(format[i], &flag, ptr);
 			if (flag)
-				handleBuffer(1, &format[i]);
+				handleBuffer(2, &format[i - 1]);
 		}
 		++i;
 	}

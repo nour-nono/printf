@@ -7,7 +7,7 @@
  * @ptr : the number to be printed
  *
  * Return: Nothing
-*/
+ */
 void searchInSpecfires(char format, int *flag, va_list ptr)
 {
 	placeHolders specifiers[] = {
@@ -27,6 +27,9 @@ void searchInSpecfires(char format, int *flag, va_list ptr)
 	for (; j < 10; ++j)
 	{
 		if (format == specifiers[j].sp && *flag)
+		{
 			specifiers[j].funcPtr(ptr), *flag = 0;
+			break;
+		}
 	}
 }
