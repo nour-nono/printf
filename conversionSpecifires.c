@@ -8,13 +8,13 @@
  */
 int conversionSpecifires(char ch)
 {
-    char con[] = {' ', '-', '+', '0', '#'};
-    int i = 0;
+	char con[] = {' ', '-', '+', '0', '#'};
+	int i = 0;
 
-    for (; i < 5; ++i)
-    {
-        if (ch == con[i])
-            return (1);
-    }
-    return (0);
+	for (; i < 5; ++i)
+	{
+		if (ch == con[i])
+			return (1);
+	}
+	return (0);
 }

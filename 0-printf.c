@@ -9,7 +9,7 @@
 
 int _printf(const char *format, ...)
 {
-	int i = 0, flag = 1,fl = 0;
+	int i = 0, flag = 1, fl = 0;
 	va_list ptr;
 
 	if (!format)
@@ -33,7 +33,10 @@ int _printf(const char *format, ...)
 				flag = 0;
 			}
 			fl = conversionSpecifires(format[i]);
-            (fl) ? searchInSpecfires(format[i+1], &flag, &i, fl, ptr) : searchInSpecfires(format[i], &flag, &i, fl, ptr);
+			if (fl)
+				searchInSpecfires(format[i + 1], &flag, &i, fl, ptr);
+			else
+				searchInSpecfires(format[i], &flag, &i, fl, ptr);
 			if (flag)
 				handleBuffer(2, &format[i - 1]);
 		}
