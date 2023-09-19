@@ -9,7 +9,7 @@
 
 int _printf(const char *format, ...)
 {
-	int i = 0, flag = 1;
+	int i = 0, flag = 1,fl = 0;
 	va_list ptr;
 
 	if (!format)
@@ -21,7 +21,7 @@ int _printf(const char *format, ...)
 			handleBuffer(1, &format[i]);
 		else
 		{
-			flag = 1, ++i;
+			flag = 1, ++i, fl = 0;
 			if (format[i] == '\0' || (format[i] == ' ' && format[i + 1] == '\0'))
 			{
 				handleBuffer(-1, "");
@@ -32,10 +32,8 @@ int _printf(const char *format, ...)
 				printPercentage();
 				flag = 0;
 			}
-            if (format[i] == ' ' && format[i + 1] != '\0')
-                searchInSpecfires(format[i+1], &flag, &i, 1, ptr);
-            else
-                searchInSpecfires(format[i], &flag, &i, 0, ptr);
+			fl = conversionSpecifires(format[i]);
+            (fl) ? searchInSpecfires(format[i+1], &flag, &i, fl, ptr) : searchInSpecfires(format[i], &flag, &i, fl, ptr);
 			if (flag)
 				handleBuffer(2, &format[i - 1]);
 		}

@@ -45,5 +45,6 @@ struct placeHolders
 };
 typedef struct placeHolders placeHolders;
 void searchInSpecfires(char format, int *flag, int *i, int fl, va_list ptr);
+int conversionSpecifires(char ch);
 int _printf(const char *format, ...);
 #endif
