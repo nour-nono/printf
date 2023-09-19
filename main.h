@@ -35,14 +35,15 @@ void printVisibleString(va_list argu);
  * struct placeHolders - just struct
  *
  * @sp: a char
- * @funcptr: pointer to func
+ * @funcPtr: pointer to func
  *
 */
-typedef struct placeHolders placeHolders;
 struct placeHolders
 {
 	char sp;
 	void (*funcPtr)(va_list);
 };
+typedef struct placeHolders placeHolders;
+void searchInSpecfires(char format, int *flag, va_list ptr);
 int _printf(const char *format, ...);
 #endif
