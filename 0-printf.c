@@ -32,10 +32,10 @@ int _printf(const char *format, ...)
 				printPercentage();
 				flag = 0;
 			}
-            if (format[i] == ' ' && format[i + 1] != '\0')
-                searchInSpecfires(format[i+1], &flag, &i, 1, ptr);
-            else
-                searchInSpecfires(format[i], &flag, &i, 0, ptr);
+			if (format[i] == ' ' && format[i + 1] != '\0')
+				searchInSpecfires(format[i + 1], &flag, &i, 1, ptr);
+			else
+				searchInSpecfires(format[i], &flag, &i, 0, ptr);
 			if (flag)
 				handleBuffer(2, &format[i - 1]);
 		}
