@@ -21,14 +21,8 @@ int _printf(const char *format, ...)
 			handleBuffer(1, &format[i]);
 		else
 		{
-			flag = 1;
-			++i;
-			if (format[i] == '\0')
-			{
-				handleBuffer(-1, "");
-				return (-1);
-			}
-			if (format[i] == ' ' && format[i + 1] == '\0')
+			flag = 1, ++i;
+			if (format[i] == '\0' || (format[i] == ' ' && format[i + 1] == '\0'))
 			{
 				handleBuffer(-1, "");
 				return (-1);
@@ -38,7 +32,10 @@ int _printf(const char *format, ...)
 				printPercentage();
 				flag = 0;
 			}
-			searchInSpecfires(format, &flag, ptr);
+            if (format[i] == ' ' && format[i + 1] != '\0')
+                searchInSpecfires(format[i+1], &flag, &i, 1, ptr);
+            else
+                searchInSpecfires(format[i+1], &flag, &i, 0, ptr);
 			if (flag)
 				handleBuffer(2, &format[i - 1]);
 		}
