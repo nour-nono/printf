@@ -26,7 +26,7 @@ int _printf(const char *format, ...)
 			if (format[i] == '\0')
 			{
 				handleBuffer(-1, "");
-				return (0);
+				return (-1);
 			}
 			if (format[i] == ' ' && (format[i + 1] == '\0' || format[i + 1] == ' '))
 				return (-1);
