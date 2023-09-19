@@ -21,6 +21,7 @@ int _printf(const char *format, ...)
 			handleBuffer(1, &format[i]);
 		else
 		{
+			flag = 1;
 			++i;
 			if (format[i] == '\0')
 				return (handleBuffer(-1, "") ? handleBuffer(-1, "") : -1);
