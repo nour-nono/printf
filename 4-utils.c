@@ -21,6 +21,11 @@ int handleBuffer(int a, const char *ch)
 	}
 	if (a == 1)
 	{
+		if (iForBuffer == buff_size - 1)
+		{
+			write(1, output, iForBuffer);
+			iForBuffer = 0, output[iForBuffer] = '\0';
+		}
 		output[iForBuffer] = *ch, ++outputLength, ++iForBuffer, ++iForInput;
 		--a, output[iForBuffer] = '\0';
 	}
