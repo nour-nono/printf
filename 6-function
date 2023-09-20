@@ -1,0 +1,6 @@
+#include "main.h"
+
+void printAdress(va_list argu)
+{
+	void *p = va_arg(argu, void *);
+}
