@@ -15,7 +15,7 @@ void printUnsigned(va_list argu)
 	char c;
 
 	x = num;
-	for (i = 0; x > 10; i++)
+	for (i = 0; x >= 10; i++)
 		x /= 10;
 	while (i >= 0)
 	{
@@ -28,7 +28,7 @@ void printUnsigned(va_list argu)
 
 
 /**
- * convertUnsignedToHex- the function that convert a number to hexadecimal
+ * convertUnsignedToHex - the function that convert a number to hexadecimal
  *
  * @num : the number to be converted
  * @flagChar : it determines if 'X' capital or small 'x'
