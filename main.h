@@ -30,7 +30,8 @@ void printHEX(va_list argu);
 
 /*5th task function*/
 void printVisibleString(va_list argu);
-
+/*6th task function*/
+void printAdress(va_list argu);
 /**
  * struct placeHolders - just struct
  *

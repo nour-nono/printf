@@ -23,10 +23,11 @@ void searchInSpecfires(char format, int *flag, int *i, int fl, va_list ptr)
 		{'x', printHex},
 		{'X', printHEX},
 		{'S', printVisibleString},
+		{'p', printAdress}
 	};
 	int j = 0;
 
-	for (; j < 10; ++j)
+	for (; j < 11; ++j)
 	{
 		if (format == specifiers[j].sp && *flag)
 		{
