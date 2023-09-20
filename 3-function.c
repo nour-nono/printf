@@ -20,7 +20,7 @@ void printUnsigned(va_list argu)
 	while (i >= 0)
 	{
 		x = num / _pow(10, i);
-		c = (x % 10) + '0';
+		c = (x % 10) + 48;
 		handleBuffer(1, &c);
 		i--;
 	}
@@ -36,7 +36,7 @@ void printUnsigned(va_list argu)
  * Return: Nothing
  */
 
-void convertUnsignedToHex(unsigned int num, char flagChar)
+void convertUnsignedToHex(unsigned int num, int flagChar)
 {
 	int x, y = (flagChar != 48) ? 16 : 8;
 	char c;
@@ -59,7 +59,7 @@ void printOctal(va_list argu)
 {
 	unsigned int n = va_arg(argu, unsigned int);
 
-	convertUnsignedToHex(n, '0');
+	convertUnsignedToHex(n, 48);
 }
 
 /**
@@ -75,7 +75,7 @@ void printHex(va_list argu)
 {
 	unsigned int n = va_arg(argu, unsigned int);
 
-	convertUnsignedToHex(n, 'a' - 10);
+	convertUnsignedToHex(n, 87);
 }
 
 /**
@@ -90,5 +90,5 @@ void printHEX(va_list argu)
 {
 	unsigned int n = va_arg(argu, unsigned int);
 
-	convertUnsignedToHex(n, 'A' - 10);
+	convertUnsignedToHex(n, 55);
 }
